@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const db = require('./config/db');
+const route = require('./routes');
 
 
 const app = express();
@@ -15,6 +16,9 @@ app.use(express.json());
 
 //connect to DB
 db.connect();
+
+//run routes
+route(app);
 
 app.get('/', (req, res) => {
   res.send('Welcome to my app')
