@@ -1,5 +1,5 @@
 const express = require('express');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const db = require('./config/db');
 const route = require('./routes');
 const dotenv = require('dotenv');
@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 
 //use middlewares
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 app.use(express.urlencoded({
   extended: true
 }));
