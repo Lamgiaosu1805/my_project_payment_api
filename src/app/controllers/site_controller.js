@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 class SiteController {
     // login
@@ -14,10 +15,19 @@ class SiteController {
                     user.password
                 );
                 if(validatePassword) {
+                    var access_token = await jwt.sign({
+                        id: user._id,
+                        admin: user.isAdmin,
+                    }, 
+                    process.env.SECRET_KEY_JWT, 
+                    {
+                        expiresIn: 60 * 60
+                    }
+                    );
                     res.json({
                         success: true,
                         message: "Đăng nhập thành công",
-                        access_token: "jlshgkshgsikhg"
+                        access_token: access_token
                     });
                 }
                 else {
@@ -54,7 +64,8 @@ class SiteController {
                 password: hashed,
                 fullname: req.body.fullname,
             })
-            user.save((err) => {
+            user.save((err, user) => {
+                console.log(user);
                 if(err) {
                     console.log(err)
                     res.json({

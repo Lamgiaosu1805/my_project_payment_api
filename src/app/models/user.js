@@ -6,7 +6,7 @@ const UserSchema = new Schema({
     password: {type: String, require: true, minlength: 8},
     isAdmin : {type: Boolean, default: false},
     fullname: {type: String, require: true, minlength: 1},
-    avtar_url: {type: String, default: ""}
+    avatar_url: {type: String, default: ""}
 }, {
     timestamps: true
 })
