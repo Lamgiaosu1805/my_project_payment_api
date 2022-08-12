@@ -8,6 +8,7 @@ const productController = require('../app/controllers/product_controller');
 router.get("/test", productController.test)
 router.get("/:slug", productController.showDetailProduct);
 router.get("/", productController.index);
+router.post("/create", productController.createProduct);
 
 
 module.exports = router;
