@@ -22,10 +22,6 @@ db.connect();
 //run routes
 route(app);
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my app')
-});
-
 app.listen(port, () => {
   console.log(`my app listening on port ${port}`)
 });

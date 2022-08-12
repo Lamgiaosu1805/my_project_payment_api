@@ -4,9 +4,9 @@ const siteRoute = require('./site_route');
 function route(app) {
 
     // api_url/
-    app.use("/", siteRoute);
+    app.use("/v1/", siteRoute);
     // api_url/product
-    app.use("/product", productRoute);
+    app.use("/v1/product", productRoute);
     
 }
 
