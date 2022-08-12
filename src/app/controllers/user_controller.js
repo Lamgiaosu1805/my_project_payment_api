@@ -15,7 +15,7 @@ class UserController {
         else {
             res.json({
                 success: true,
-                username: user.username,
+                fullname: user.fullname,
                 isAdmin: user.isAdmin,
                 avatar_url: user.avatar_url
             });

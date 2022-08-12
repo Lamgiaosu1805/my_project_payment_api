@@ -65,7 +65,6 @@ class SiteController {
                 fullname: req.body.fullname,
             })
             user.save((err, user) => {
-                console.log(user);
                 if(err) {
                     console.log(err)
                     res.json({
